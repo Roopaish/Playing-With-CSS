@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playing With CSS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <h3>Playing With CSS</h3>
+
+  <article>
+
+    <header>Blend Mode</header>
+    <section class="blend-mode">
+      <h1>
+        <span>Css</span><span>Blend</span><span>Mode</span><span>is</span> <span>Amazing!</span>
+      </h1>
+    </section>
+
+
+    <header>Playing With SVG</header>
+    <section class="play">
+      <svg id="svg1" width="120" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="triangles" clip-path="url(#clip0)">
+          <path id="light"
+            d="M43.5206 46.6355C44.1877 47.0197 44.1886 47.9819 43.5224 48.3675L14.2892 65.2842C13.623 65.6698 12.7891 65.1895 12.7884 64.4197L12.7546 30.6447C12.7539 29.8749 13.5867 29.393 14.2538 29.7772L43.5206 46.6355Z" />
+          <g id="dark">
+            <path id="dark1"
+              d="M35.5206 46.6355C36.1877 47.0197 36.1886 47.9819 35.5224 48.3675L6.28924 65.2842C5.62296 65.6698 4.78915 65.1895 4.78838 64.4197L4.75463 30.6447C4.75386 29.8749 5.58671 29.393 6.25376 29.7772L35.5206 46.6355Z" />
+            <path id="dark2"
+              d="M35.5206 46.6355C36.1877 47.0197 36.1886 47.9819 35.5224 48.3675L6.28924 65.2842C5.62296 65.6698 4.78915 65.1895 4.78838 64.4197L4.75463 30.6447C4.75386 29.8749 5.58671 29.393 6.25376 29.7772L35.5206 46.6355Z" />
+          </g>
+        </g>
+      </svg>
+    </section>
+
+
+    <header>Svg Background</header>
+    <section class="svg-bg">
+    </section>
+
+
+    <header>Fly Me To The Moon</header>
+    <section class="fly">
+      <svg xmlns:"http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <style>
+          @keyframes scroll1 {
+            to {
+              transform: translateX(-100%);
+            }
+
+            from {
+              transform: translateX(150%);
+            }
+          }
+
+          @keyframes scroll2 {
+            to {
+              transform: translate(-100%, 20%)
+            }
+
+            from {
+              transform: translate(100%, 20%);
+            }
+          }
+
+          @keyframes fly {
+            0% {
+              transform: rotate(45deg);
+            }
+
+            50% {
+              transform: rotate(40deg);
+            }
+            
+            100%{
+              transform:rotate(42deg);
+            }
+          }
+        </style>
+        <text y="1em" font-size="25" fill="#bebaba" style="animation:scroll1 7.5s infinite linear">☁&nbsp;&nbsp;
+          ☁</text>
+        <text y="1em" font-size="25" fill="#bebaba" style="animation:scroll2 5s infinite linear">☁&nbsp;&nbsp; ☁</text>
+        <text x="5em" y="-1em" font-size="10" style="animation:fly 5s infinite linear alternate;">🚀</text>
+      </svg>
+    </section>
+
+
+    <header>Cool Border</header>
+    <section class="cool-border">
+      <svg>
+        <style>
+          @keyframes sliding{
+            to{
+              stroke-dashoffset: -110px;
+            }
+          }
+        </style>
+
+        <linearGradient id="nice" gradientTransform="rotate(50)">
+          <stop stop-color="gold"></stop>
+          <stop stop-color="#0ac" offset=1></stop>
+        </linearGradient>
+
+        <rect width="100%" height="100%"
+          style="stroke:url(#nice); stroke-width: 40px; fill:none; stroke-dasharray: 40px 70px; animation:sliding 1s infinite linear; stroke-linecap:round;" />
+      </svg>
+    </section>
+
+
+    <section class="cool-border2">
+      <button class="btn"><span>Hover Over!</span></button>
+    </section>
+
+
+  </article>
+
+
+  <script>
+
+    const svg = document.getElementById('triangles');
+
+    svg.onclick = (e) => {
+
+      const randomColor = () =>{
+        let color = Math.floor(0xFFFFFF-Math.random()*0xFFFFFF).toString(16);
+        if(color.length<6){
+          color = color+'0';
+        }
+        return color;
+      }
+
+      document.documentElement.style.cssText = `
+        --dark-color:#${randomColor()};
+        --light-color:#${randomColor()};
+      `;
+    }
+
+  </script>
+</body>
+
+</html>

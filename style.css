@@ -1,0 +1,224 @@
+/* Document */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dark-color: #2716ed;
+  --light-color: #28a4da;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 2.4rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: grid;
+  place-items: center;
+  background: conic-gradient(
+    rgb(139, 157, 181, 0.5),
+    rgb(224, 215, 240, 0.5),
+    rgb(141, 199, 206, 0.5)
+  );
+}
+
+h3 {
+  margin: 2rem;
+}
+
+article {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr;
+  max-width: 800px;
+}
+
+header {
+  margin: 1.3rem 0 -1rem 0;
+  font-weight: 500;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+header::after,
+header::before {
+  content: "";
+  background-color: grey;
+  flex: 1;
+  height: 0.1rem;
+  margin: 1rem;
+}
+
+article > *:not(header) {
+  padding: 1rem;
+  margin: 2rem;
+  box-shadow: 0 0 0.3rem 0.2rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0.3rem 0.2rem rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+}
+
+/* Blend mode  */
+
+.blend-mode {
+  cursor: pointer;
+  line-height: 0.8;
+  background: url("https://i.pinimg.com/originals/87/d7/7f/87d77fff314d17bf12b963ce81d9b420.jpg");
+}
+
+.blend-mode h1 {
+  border-radius: 2rem;
+  width: fit-content;
+  padding: 2rem;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  mix-blend-mode: screen;
+  transition: all 0.3s linear;
+  /* multiply |screen | many more like photoshop */
+}
+
+.blend-mode:hover h1 {
+  background-color: black;
+  color: white;
+  mix-blend-mode: multiply;
+}
+
+.blend-mode h1 span {
+  display: block;
+  text-transform: uppercase;
+}
+
+.blend-mode h1 span:nth-child(1) {
+  font-size: 11rem;
+}
+.blend-mode h1 span:nth-child(2) {
+  font-size: 6rem;
+}
+.blend-mode h1 span:nth-child(3) {
+  font-size: 6.3rem;
+}
+.blend-mode h1 span:nth-child(4) {
+  font-size: 5rem;
+}
+.blend-mode h1 span:nth-child(5) {
+  font-size: 3.7rem;
+}
+
+/* Playing with svg */
+.play {
+  box-shadow: none;
+}
+#svg1 {
+  cursor: pointer;
+}
+#dark {
+  fill: var(--dark-color);
+}
+#light {
+  fill: var(--light-color);
+  transform: translateX(5%);
+}
+#dark2 {
+  transform: translateX(-100%);
+}
+
+#dark1,
+#dark2,
+#light {
+  transition: all 1s ease;
+}
+#svg1:hover #light {
+  transform: translateX(20%);
+}
+#svg1:hover #dark1 {
+  transform: translateX(40%);
+  opacity: 0;
+}
+#svg1:hover #dark2 {
+  transform: translateX(0);
+}
+
+/* Fly me to the moon  */
+.fly {
+  width: 40rem;
+  height: 20rem;
+}
+
+/* Cool-border  */
+.cool-border2{
+  box-shadow:none;
+}
+
+/* border-animation  */
+.btn{
+  color:rgb(78, 72, 72);
+  cursor: pointer;
+  background:whitesmoke;
+  border:none;
+  outline-color:transparent;
+  padding: 2rem;
+  font-size:3rem;
+  position: relative;
+}
+
+.btn::before,.btn::after,.btn span::after,.btn span::before{
+  content:"";
+  position:absolute;
+  transition: all 0.2s linear;
+  background-color: #16dfed;
+}
+
+.btn::before,.btn::after{
+  width:0;
+  height:3px;
+}
+.btn span::after,.btn span::before{
+  width:3px;
+  height:0;
+  transition-delay:0.2s;
+}
+
+.btn:hover::before,.btn:hover::after{
+  width:100%;
+  transition-delay:0.2s;
+}
+.btn:hover span::after,.btn:hover span::before{
+  height:100%;
+  transition-delay:0s;
+}
+
+
+.btn::before{
+  right:0;
+  top:0;
+}
+.btn::after{
+  left:0;
+  bottom:0;
+}
+.btn span::after{
+  bottom:0;
+  right:0;
+}
+.btn span::before{
+  top:0;
+  left:0;
+}
+
+
+/* svg background animation   */
+.svg-bg {
+  height: 40rem;
+  width: 40rem;
+  background: url('data:image/svg+xml,\
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox = "0 0 100 100">\
+      <style>@keyframes anim %7Bto%7B transform:rotate(-10deg)}}</style>\
+      <text y="1em" font-size="70" style="animation:anim 1s infinite alternate">🦄</text>\
+</svg>');
+  background-size: 100px 100px;
+}
+
