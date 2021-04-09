@@ -1,4 +1,5 @@
 /* Document */
+
 * {
   margin: 0;
   padding: 0;
@@ -149,66 +150,87 @@ article > *:not(header) {
 }
 
 /* Cool-border  */
-.cool-border2{
-  box-shadow:none;
+.cool-border2 {
+  box-shadow: none;
 }
 
 /* border-animation  */
-.btn{
-  color:rgb(78, 72, 72);
+.btn {
+  color: rgb(78, 72, 72);
   cursor: pointer;
-  background:whitesmoke;
-  border:none;
-  outline-color:transparent;
+  background: whitesmoke;
+  border: none;
+  outline-color: transparent;
   padding: 2rem;
-  font-size:3rem;
+  font-size: 4rem;
+  font-family: "Oswald", sans-serif;
+  font-style: italic;
   position: relative;
 }
-
-.btn::before,.btn::after,.btn span::after,.btn span::before{
-  content:"";
-  position:absolute;
+.btn span {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+.btn::before,
+.btn::after,
+.btn span::after,
+.btn span::before {
+  content: "";
+  position: absolute;
   transition: all 0.2s linear;
   background-color: #16dfed;
 }
 
-.btn::before,.btn::after{
-  width:0;
-  height:3px;
+.btn::before,
+.btn::after {
+  width: 0;
+  height: 3px;
 }
-.btn span::after,.btn span::before{
-  width:3px;
-  height:0;
-  transition-delay:0.2s;
-}
-
-.btn:hover::before,.btn:hover::after{
-  width:100%;
-  transition-delay:0.2s;
-}
-.btn:hover span::after,.btn:hover span::before{
-  height:100%;
-  transition-delay:0s;
+.btn span::after,
+.btn span::before {
+  width: 3px;
+  height: 0;
+  transition-delay: 0.2s;
 }
 
-
-.btn::before{
-  right:0;
-  top:0;
+.btn:hover::before,
+.btn:hover::after {
+  width: 100%;
+  transition-delay: 0.2s;
 }
-.btn::after{
-  left:0;
-  bottom:0;
-}
-.btn span::after{
-  bottom:0;
-  right:0;
-}
-.btn span::before{
-  top:0;
-  left:0;
+.btn:hover span::after,
+.btn:hover span::before {
+  height: 100%;
+  transition-delay: 0s;
 }
 
+.btn::before {
+  right: 0;
+  top: 0;
+}
+.btn::after {
+  left: 0;
+  bottom: 0;
+}
+.btn span::after {
+  bottom: 0;
+  right: 0;
+}
+.btn span::before {
+  top: 0;
+  left: 0;
+}
+
+@keyframes glow {
+  from {
+    color: white;
+    text-shadow: 0 0 1px pink, 0 0 2px pink, 0 0 3px pink,0 0 4px pink,0 0 5px pink;
+  }
+
+  to {
+    color: pink;
+    text-shadow: 0 0 2px pink, 0 0 3px pink, 0 0 4px pink,0 0 5px pink,0 1 6px pink;
+  }
+}
 
 /* svg background animation   */
 .svg-bg {
@@ -216,9 +238,8 @@ article > *:not(header) {
   width: 40rem;
   background: url('data:image/svg+xml,\
     <svg xmlns="http://www.w3.org/2000/svg" viewBox = "0 0 100 100">\
-      <style>@keyframes anim %7Bto%7B transform:rotate(-10deg)}}</style>\
-      <text y="1em" font-size="70" style="animation:anim 1s infinite alternate">🦄</text>\
+      <style>@keyframes anim %7Bto%7B transform:rotate(-20deg)}}</style>\
+      <text y="1em" font-size="70" style="animation:anim 1s infinite linear alternate;transform-origin:center center">😆</text>\
 </svg>');
   background-size: 100px 100px;
 }
-

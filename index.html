@@ -129,10 +129,12 @@
 
       const randomColor = () =>{
         let color = Math.floor(0xFFFFFF-Math.random()*0xFFFFFF).toString(16);
-        if(color.length<6){
-          color = color+'0';
+        if(color.length != 6){
+          return randomColor();
+        }else{
+          return color;
         }
-        return color;
+        
       }
 
       document.documentElement.style.cssText = `
