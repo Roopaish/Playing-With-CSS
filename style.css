@@ -73,6 +73,8 @@ article > *:not(header) {
 
 .blend-mode h1 {
   border-radius: 2rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   padding: 2rem;
   background-color: rgb(255, 255, 255);
@@ -150,6 +152,9 @@ article > *:not(header) {
 }
 
 /* Cool-border  */
+.cool-border{
+  text-align: center;
+}
 .cool-border2 {
   box-shadow: none;
 }
@@ -168,7 +173,8 @@ article > *:not(header) {
   position: relative;
 }
 .btn span {
-  animation: glow 2s ease-in-out infinite alternate;
+  -webkit-animation: glow 2s ease-in-out infinite alternate;
+          animation: glow 2s ease-in-out infinite alternate;
 }
 .btn::before,
 .btn::after,
@@ -218,6 +224,18 @@ article > *:not(header) {
 .btn span::before {
   top: 0;
   left: 0;
+}
+
+@-webkit-keyframes glow {
+  from {
+    color: white;
+    text-shadow: 0 0 1px pink, 0 0 2px pink, 0 0 3px pink,0 0 4px pink,0 0 5px pink;
+  }
+
+  to {
+    color: pink;
+    text-shadow: 0 0 2px pink, 0 0 3px pink, 0 0 4px pink,0 0 5px pink,0 1 6px pink;
+  }
 }
 
 @keyframes glow {
