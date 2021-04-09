@@ -239,7 +239,7 @@ article > *:not(header) {
   background: url('data:image/svg+xml,\
     <svg xmlns="http://www.w3.org/2000/svg" viewBox = "0 0 100 100">\
       <style>@keyframes anim %7Bto%7B transform:rotate(-20deg)}}</style>\
-      <text y="1em" font-size="70" style="animation:anim 1s infinite linear alternate;transform-origin:center center">😆</text>\
+      <text y="1em" font-size="70" style="animation:anim 1s infinite linear alternate;transform-origin:center center">☠</text>\
 </svg>');
   background-size: 100px 100px;
 }
